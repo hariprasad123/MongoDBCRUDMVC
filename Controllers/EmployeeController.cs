@@ -50,9 +50,10 @@ namespace MVCTest.Controllers
         {
             
             if (ModelState.IsValid)
-            {   
-                string constr = ConfigurationManager.AppSettings["connectionString"];
-                var client = new MongoClient(constr);
+            {
+                //string constr = ConfigurationManager.AppSettings["connectionString"];                
+                //var client = new MongoClient(constr);
+                var client = new MongoClient("mongodb://mongo-demo:qh33YepJwZ9tqtkdHZe4CqrLr1r7ddykkZKCCEkbtgrQ6Stqwim38HVdVKaRewFEIoN8CwhaYhBuKWc6cfiw2A==@mongo-demo.documents.azure.com:10255/?ssl=true&replicaSet=globaldb");
                 var db = client.GetDatabase("CarDatabase");
                 var collection = db.GetCollection<Employee>("EmployeeDetails");
                 //var collection = db.GetCollection<BsonDocument>("EmployeeDetails");
